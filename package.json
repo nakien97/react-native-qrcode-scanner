@@ -1,6 +1,6 @@
 {
   "name": "react-native-qrcode-scanner",
-  "version": "1.4.0",
+  "version": "1.0.0",
   "description": "A QR code scanner for React Native.",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moaazsidat/react-native-qrcode-scanner.git"
+    "url": "git+https://github.com/nakien97/react-native-qrcode-scanner.git"
   },
   "keywords": [
     "react-native",
@@ -53,5 +53,8 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/react-native-qrcode-scanner"
+  },
+  "directories": {
+    "example": "examples"
   }
 }

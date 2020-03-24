@@ -33,15 +33,7 @@ interface Size<T = number> {
 }
 
 export interface Event {
-  data: any;
-  type: keyof BarCodeType;
-  /**
-   * @description For Android use `[Point<string>, Point<string>]`
-   * @description For iOS use `{ origin: Point<string>, size: Size<string> }`
-   */
-  bounds:
-    | [Point<string>, Point<string>]
-    | { origin: Point<string>; size: Size<string> };
+  barcodes: any;
 }
 
 export interface RNQRCodeScannerProps {
