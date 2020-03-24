@@ -116,6 +116,7 @@ export default class QRCodeScanner extends Component {
 
     this._scannerTimeout = null;
     this._handleBarCodeRead = this._handleBarCodeRead.bind(this);
+    this.cameraRef = undefined;
   }
 
   componentDidMount() {
@@ -178,9 +179,12 @@ export default class QRCodeScanner extends Component {
       }
       this._setScanning(true);
       this.props.onRead(e);
+      this.cameraRef.resumePreview();
       if (this.props.reactivate) {
         this._scannerTimeout = setTimeout(
-          () => this._setScanning(false),
+          () => {
+            this._setScanning(false);
+          },
           this.props.reactivateTimeout
         );
       }
@@ -224,6 +228,7 @@ export default class QRCodeScanner extends Component {
   _renderCameraComponent() {
     return (
       <Camera
+        ref={(ref) => { this.cameraRef = ref }}
         androidCameraPermissionOptions={{
           title: this.props.permissionDialogTitle,
           message: this.props.permissionDialogMessage,
@@ -234,6 +239,7 @@ export default class QRCodeScanner extends Component {
         type={this.props.cameraType}
         flashMode={this.props.flashMode}
         captureAudio={false}
+        pauseAfterCapture
         {...this.props.cameraProps}
       >
         {this._renderCameraMarker()}
